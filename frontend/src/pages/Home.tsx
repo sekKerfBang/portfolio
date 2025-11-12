@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchProjects, fetchSkills } from '../services/api';
-import type { Project, Skill } from '../types';
+// import type { Project, Skill } from '../types';
 
 const Home: React.FC = () => {
   const [projectCount, setProjectCount] = useState(0);
