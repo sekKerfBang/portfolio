@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "deploy:copy": "npm run build && rm -rf static/* && cp -r dist/* ../backend/static/",
     "lint": "eslint .",
     "preview": "vite preview"
   },

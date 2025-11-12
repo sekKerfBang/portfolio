@@ -1,3 +1,4 @@
+from django.views.generic import TemplateView
 from rest_framework import generics
 from .models import Project, Skill, ContactMessage
 from .serializers import ProjectSerializer, SkillSerializer, ContactMessageSerializer
@@ -13,3 +14,9 @@ class SkillList(generics.ListAPIView):
 class ContactMessageCreate(generics.CreateAPIView): 
     queryset = ContactMessage.objects.all()
     serializer_class = ContactMessageSerializer    
+
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+# Ajoute dans static/index.html le contenu de dist/index.html    
