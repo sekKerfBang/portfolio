@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description: "Un site perso fait avec Django",
     technologies: "Django, Bootstrap Template, Bootstrap",
     link: "https://github.com/sekKerfBang/GestionRH",
-    image: "/LogoGrh.svg",
+    image: "/static/LogoGrh.svg",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const projects: Project[] = [
     description: "Curriculum Vitae",
     technologies: "Django, React",
     link: "https://github.com/sekKerfBang/portfolio",
-    image: "/Portfolio.jpg",
+    image: "/static/Portfolio.jpg",
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     description: "Un site permettant au utilisateur d'evaluer leurs niveau",
     technologies: "SpringBoot, React, Docker, PostgreSql",
     link: "https://github.com/sekKerfBang/quizz",
-    image: "/Quizz.jpg", 
+    image: "/static/Quizz.jpg", 
   },
   {
     id: 4,
@@ -31,6 +31,6 @@ export const projects: Project[] = [
     description: "Un site permettant au malade de communiquer et prendre rendez vous avec leurs medecins online",
     technologies: "Django, Scss, Js, html, Css",
     link: "https://github.com/sekKerfBang/teleconsultation",
-    image: "/Teleconsultat.jpg",
+    image: "/static/Teleconsultat.jpg",
   }
 ];

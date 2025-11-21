@@ -1,14 +1,12 @@
   import { useEffect, useState } from 'react';
   // import { fetchSkills } from '../services/api';
-  // import type { Skill } from '../types';
+  import type { Skill } from '../types';
   import { skills as localSkills } from '../../public/data/skills';
 
   const About: React.FC = () => {
-    const [skills, setSkills] = useState<Skills[]>([]);
+    const [skills, setSkills] = useState<Skill[]>([]);
 
-    // useEffect(() => {
-    //   fetchSkills().then(setSkills);
-    // }, []);
+  
       useEffect(() => {
     // Utilisation directe des données locales
     setSkills(localSkills);   
