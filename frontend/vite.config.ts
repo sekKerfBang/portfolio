@@ -11,7 +11,7 @@ const API_BASE_URL =
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/static', // <<< OBLIGATOIRE, bien placé tout en haut
+  base: '/static/', // <<< OBLIGATOIRE, bien placé tout en haut
   root: '.',
   plugins: [
     react(),

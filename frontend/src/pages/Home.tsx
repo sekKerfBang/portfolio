@@ -1,26 +1,33 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchProjects, fetchSkills } from '../services/api';
-// import type { Project, Skill } from '../types';
+// import { fetchProjects, fetchSkills } from '../services/api';
+import { projects as localProjects } from '../../public/data/projects';
+import { skills as localSkills } from '../../public/data/skills';
 
 const Home: React.FC = () => {
   const [projectCount, setProjectCount] = useState(0);
   const [skillCount, setSkillCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const [projects, skills] = await Promise.all([fetchProjects(), fetchSkills()]);
-        setProjectCount(projects.length);
-        setSkillCount(skills.length);
-      } catch (err) {
-        console.error('Erreur chargement données:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadData();
+  // useEffect(() => {
+  //   const loadData = async () => {
+  //     try {
+  //       const [projects, skills] = await Promise.all([fetchProjects(), fetchSkills()]);
+  //       setProjectCount(projects.length);
+  //       setSkillCount(skills.length);
+  //     } catch (err) {
+  //       console.error('Erreur chargement données:', err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   loadData();
+  // }, []);
+    useEffect(() => {
+    // Utilisation directe des données locales
+    setProjectCount(localProjects.length);
+    setSkillCount(localSkills.length);
+    setLoading(false);
   }, []);
 
   return (
@@ -40,7 +47,7 @@ const Home: React.FC = () => {
             </h1>
 
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-700">
-              Développeur Fullstack
+              Développeur FullStack
             </h2>
 
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
@@ -78,8 +85,8 @@ const Home: React.FC = () => {
 
             {/* Photo avec VISAGE BIEN VISIBILE */}
             <img
-            src="/Skb.jpeg"
-            alt="Sékou Kerfala Bangoura - Développeur Fullstack"
+            src="/static/Skb.jpeg"
+            alt="Sékou Kerfala Bangoura - Développeur Fulltack"
             loading="lazy"
             className="
                 relative w-80 h-80 md:w-96 md:h-96 

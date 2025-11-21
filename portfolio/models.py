@@ -3,7 +3,7 @@ from django.db import models
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    image = models.URLField()  # URL d'une image hébergée (ex. Unsplash)
+    image = models.ImageField(upload_to='projectsImg/') # URL d'une image hébergée (ex. Unsplash)
     link = models.URLField(blank=True)
     technologies = models.CharField(max_length=200)  # Ex. "React, Tailwind"
 
