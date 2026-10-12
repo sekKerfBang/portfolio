@@ -1,182 +1,141 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { fetchProjects, fetchSkills } from '../services/api';
-import { projects as localProjects } from '../../public/data/projects';
-import { skills as localSkills } from '../../public/data/skills';
+import { projects } from '../../public/data/projects';
+import { skillGroups } from '../../public/data/skills';
+
+const fullStackCv =
+  `${import.meta.env.BASE_URL}documents/CV_Sekou_Kerfala_Bangoura_Developpeur_FullStack_CTSP.pdf`;
+const atmCv =
+  `${import.meta.env.BASE_URL}documents/CV_Sekou_Kerfala_Bangoura_Technicien_GAB_DAB_NCR.pdf`;
 
 const Home: React.FC = () => {
-  const [projectCount, setProjectCount] = useState(0);
-  const [skillCount, setSkillCount] = useState(0);
-  const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const loadData = async () => {
-  //     try {
-  //       const [projects, skills] = await Promise.all([fetchProjects(), fetchSkills()]);
-  //       setProjectCount(projects.length);
-  //       setSkillCount(skills.length);
-  //     } catch (err) {
-  //       console.error('Erreur chargement données:', err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   loadData();
-  // }, []);
-    useEffect(() => {
-    // Utilisation directe des données locales
-    setProjectCount(localProjects.length);
-    setSkillCount(localSkills.length);
-    setLoading(false);
-  }, []);
+  const skillCount = skillGroups.reduce((total, group) => total + group.skills.length, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-
-      {/* Hero Section */}
-      <section className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* Texte Hero */}
-          <div className="space-y-6 max-w-xl animate-fade-in">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-              Bonjour, je suis{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-700">
-                Sékou Kerfala Bangoura
-              </span>
+    <div className="bg-white text-slate-900">
+      <section className="overflow-hidden bg-[#f7f8fa]">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-28">
+          <div className="max-w-2xl">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              Basé à Conakry, Guinée
+            </p>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">
+              Développeur Full-Stack · Administrateur réseau · Community manager
+            </p>
+            <h1 className="text-4xl font-bold leading-[1.12] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              Des solutions numériques pensées pour être <span className="text-blue-700">utiles.</span>
             </h1>
-
-            <h2 className="text-2xl md:text-3xl font-semibold text-gray-700">
-              Développeur FullStack
-            </h2>
-
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Je crée des applications web modernes, performantes et élégantes avec{' '}
-              <strong className="text-blue-600">Django</strong>,{' '}
-              <strong className="text-blue-600" >Spring Boot</strong>, {' '}
-              <strong className="text-indigo-600">React</strong>,{' '}
-              <strong className="text-purple-600">TypeScript</strong>,{' '}
-              <strong className="text-pink-600">Tailwind CSS</strong>, intégrant parfois de l&apos;
-              <strong className="text-pink-600">AI</strong>.{' '}
-
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+              Je conçois des applications web, accompagne les utilisateurs et contribue
+              à la présence numérique des organisations. Du développement au support,
+              j’aime transformer les besoins concrets en solutions fiables.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/projects"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
               >
-                Voir mes projets
+                Découvrir mes projets
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-blue-600 text-blue-600 font-semibold text-lg rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 transition hover:border-slate-500 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
               >
-                Me contacter
+                Parlons de votre projet
               </Link>
             </div>
+
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-600">
+              <a className="underline decoration-slate-300 underline-offset-4 transition hover:text-blue-700" href={fullStackCv} download>
+                Télécharger mon CV Full-Stack
+              </a>
+              <a className="underline decoration-slate-300 underline-offset-4 transition hover:text-blue-700" href={atmCv} download>
+                CV Technicien GAB/DAB
+              </a>
+            </div>
           </div>
 
-          {/* Image ou Avatar */}
-          <div className="flex justify-center lg:justify-end pt-8 md:pt-12 lg:pt-0">
-        <div className="relative group">
-            {/* Halo animé */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-            {/* Photo avec VISAGE BIEN VISIBILE */}
-            <img
-            src="/static/Skb.jpeg"
-            alt="Sékou Kerfala Bangoura - Développeur Fulltack"
-            loading="lazy"
-            className="
-                relative w-80 h-80 md:w-96 md:h-96 
-                rounded-full object-cover 
-                shadow-2xl border-8 border-white 
-                group-hover:scale-105 
-                transition-transform duration-500 
-                z-10
-                object-center object-[center_25%]
-            "/>
-        </div>
-        </div>
-          {/* <div className="flex justify-center lg:justify-end">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="relative mx-auto w-full max-w-md lg:ml-auto">
+            <div aria-hidden="true" className="absolute -right-5 -top-5 h-28 w-28 rounded-3xl bg-amber-300/70" />
+            <div aria-hidden="true" className="absolute -bottom-5 -left-5 h-36 w-36 rounded-full bg-blue-200/70" />
+            <div className="relative overflow-hidden rounded-[2rem] border-[10px] border-white bg-slate-200 shadow-2xl shadow-slate-900/15">
               <img
-                src="skb.jpeg"
-                alt="Mon portrait"
-                className="relative w-80 h-80 md:w-96 md:h-96 rounded-full object-cover shadow-2xl border-8 border-white group-hover:scale-105 transition-transform duration-500"
+                src={`${import.meta.env.BASE_URL}sekou-kerfala.webp`}
+                alt="Portrait professionnel de Sékou Kerfala Bangoura"
+                className="aspect-square w-full object-cover"
+                fetchPriority="high"
               />
             </div>
-          </div> */}
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 shadow-md hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-blue-600">
-                {loading ? '...' : projectCount}
-              </div>
-              <p className="text-gray-700 mt-2 text-lg font-medium">Projets réalisés</p>
-            </div>
-
-            <div className="p-6 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 shadow-md hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-indigo-600">
-                {loading ? '...' : skillCount}
-              </div>
-              <p className="text-gray-700 mt-2 text-lg font-medium">Compétences maîtrisées</p>
-            </div>
-
-            <div className="p-6 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 shadow-md hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-purple-600">100%</div>
-              <p className="text-gray-700 mt-2 text-lg font-medium">Engagement & Qualité</p>
+            <div className="absolute -bottom-6 left-4 right-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-xl sm:left-8 sm:right-8">
+              <p className="text-sm font-bold text-slate-900">Un profil polyvalent, une approche concrète</p>
+              <p className="mt-1 text-sm text-slate-500">Web · Réseaux & support · Communication digitale</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6 text-center">
-          <h3 className="text-3xl font-bold text-gray-800 mb-8">Technologies que j’utilise</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              { name: 'Django', color: 'bg-green-100 text-green-700' },
-              { name: 'Spring Boot', color: 'bg-yellow-100 text-yellow-700' },
-              { name: 'React', color: 'bg-blue-100 text-blue-700' },
-              { name: 'TypeScript', color: 'bg-indigo-100 text-indigo-700' },
-              { name: 'Tailwind CSS', color: 'bg-teal-100 text-teal-700' },
-              { name: 'PostgreSQL', color: 'bg-purple-100 text-purple-700' },
-              { name: 'MySql', color: 'bg-cyan-100 text-cyan-700' },
-            ].map(tech => (
-              <span
-                key={tech.name}
-                className={`px-5 py-3 rounded-full font-medium text-sm shadow-sm hover:scale-110 transition-transform ${tech.color}`}
-              >
-                {tech.name}
+      <section aria-label="Quelques repères" className="border-b border-slate-100 bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-slate-100 px-5 py-5 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-8">
+          <div className="px-4 py-4 text-center sm:text-left">
+            <p className="text-2xl font-bold text-slate-950">{projects.length}</p>
+            <p className="mt-1 text-sm text-slate-500">projets présentés</p>
+          </div>
+          <div className="px-4 py-4 text-center sm:text-left sm:pl-8">
+            <p className="text-2xl font-bold text-slate-950">{skillCount}</p>
+            <p className="mt-1 text-sm text-slate-500">compétences détaillées</p>
+          </div>
+          <div className="px-4 py-4 text-center sm:text-left sm:pl-8">
+            <p className="text-2xl font-bold text-slate-950">Depuis 2026</p>
+            <p className="mt-1 text-sm text-slate-500">développeur Full-Stack à la CTSP</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20">
+        <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Mon expertise</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+              Un éventail de compétences au service de vos besoins
+            </h2>
+          </div>
+          <Link to="/skills" className="font-semibold text-blue-700 hover:text-blue-900">
+            Toutes mes compétences <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {skillGroups.map((group, index) => (
+            <article key={group.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-sm font-bold text-blue-800">
+                0{index + 1}
               </span>
-            ))}
-          </div>
+              <h3 className="mt-5 text-lg font-bold text-slate-950">{group.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{group.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {group.skills.slice(0, 3).map((skill) => (
+                  <span key={skill} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
-            Prêt à lancer votre projet ?
-          </h3>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Discutons de vos idées et transformons-les en réalité digitale.
-          </p>
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-14 sm:px-8 md:flex-row md:items-center md:justify-between md:py-16">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-300">Prochaine étape</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Un projet en tête ? Échangeons.</h2>
+            <p className="mt-3 max-w-xl text-slate-300">Parlez-moi de votre besoin et voyons ensemble comment lui donner vie.</p>
+          </div>
           <Link
             to="/contact"
-            className="inline-block px-10 py-4 bg-white text-blue-600 font-bold text-lg rounded-xl shadow-lg hover:bg-gray-100 hover:shadow-2xl transition-all duration-300"
+            className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-blue-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            Démarrer un projet
+            Me contacter <span className="ml-2" aria-hidden="true">→</span>
           </Link>
         </div>
       </section>

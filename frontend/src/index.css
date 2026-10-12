@@ -1,7 +1,8 @@
-/* src/index.css */
 @import "tailwindcss";
 
-/* ──────────────────────── ANIMATIONS CUSTOM ──────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -23,8 +24,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* ──────────────────────── CLASSES CUSTOM ──────────────────────── */
-
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
@@ -42,7 +41,6 @@
   animation: shine 2s infinite;
 }
 
-/* Spinner personnalisé */
 .spinner {
   @apply inline-block;
   width: 20px;
@@ -53,12 +51,26 @@
   animation: spin 1s linear infinite;
 }
 
-/* Hover shadow pro */
 .hover-shadow-xl:hover {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Gradient text */
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-700;
+}
+
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

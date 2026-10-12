@@ -41,14 +41,14 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 # ]
 
 ALLOWED_HOSTS = [
-    'portfolio-ps6h.onrender.com',
+    # 'portfolio-ps6h.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
 
 
-
-CSRF_TRUSTED_ORIGINS = ['https://portfolio-ps6h.onrender.com']
+# 'https://portfolio-ps6h.onrender.com'
+CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 
@@ -88,7 +88,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://portfolio-ps6h.onrender.com",
+    # "https://portfolio-ps6h.onrender.com",
     
 ]
 

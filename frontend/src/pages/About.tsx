@@ -1,134 +1,222 @@
-  import { useEffect, useState } from 'react';
-  // import { fetchSkills } from '../services/api';
-  import type { Skill } from '../types';
-  import { skills as localSkills } from '../../public/data/skills';
+import { Link } from 'react-router-dom';
+import { skillGroups } from '../../public/data/skills';
 
-  const About: React.FC = () => {
-    const [skills, setSkills] = useState<Skill[]>([]);
+const experience = [
+  {
+    period: 'Depuis septembre 2026',
+    role: 'Développeur Full-Stack · Administrateur réseau · Community manager',
+    organization: 'CTSP',
+    details: 'Développement et évolution d’applications web, suivi de l’environnement réseau et contribution aux contenus numériques.',
+  },
+  {
+    period: 'Avril – juin 2025',
+    role: 'Superviseur de recensement',
+    organization: 'DIGITALIS',
+    details: 'Encadrement de six agents, organisation des plannings, suivi des performances et support technique de proximité.',
+  },
+  {
+    period: 'Mai – décembre 2024',
+    role: 'Développeur stagiaire',
+    organization: 'ANDE',
+    details: 'Participation à la conception et au développement d’une application de gestion des ressources humaines avec Python et Django.',
+  },
+  {
+    period: 'Avril – mai 2022',
+    role: 'Chargé de configuration',
+    organization: 'Catholic Relief Services (CRS)',
+    details: 'Préparation et configuration de tablettes et smartphones pour des opérations de collecte de données.',
+  },
+];
 
-  
-      useEffect(() => {
-    // Utilisation directe des données locales
-    setSkills(localSkills);   
-  }, []);
+const education = [
+  {
+    period: '2020 – 2024',
+    title: 'Licence professionnelle en informatique',
+    organization: 'EICT-IST – École Internationale de Commerce et de la Technologie',
+  },
+  {
+    period: '2022 – 2023',
+    title: 'Bases de données et conception de systèmes d’information',
+    organization: 'EICT-IST',
+  },
+  {
+    period: '2020 – 2021',
+    title: 'Formation en développement web Full-Stack',
+    organization: 'EICT-IST',
+  },
+];
 
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-blue-50 py-16">
-        <div className="container mx-auto px-6 max-w-5xl">
+const About: React.FC = () => (
+  <div className="bg-[#f7f8fa] text-slate-900">
+    <section className="mx-auto max-w-7xl px-5 pb-12 pt-16 sm:px-8 md:pt-20">
+      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">À propos</p>
+      <div className="mt-4 grid gap-8 lg:grid-cols-[1fr_0.7fr] lg:items-end">
+        <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl">
+          Développer, accompagner et faire avancer les projets numériques.
+        </h1>
+        <p className="text-lg leading-8 text-slate-600">
+          Je suis Sékou Kerfala Bangoura, développeur Full-Stack diplômé en informatique
+          et professionnel polyvalent basé à Conakry.
+        </p>
+      </div>
+    </section>
 
-          {/* Titre */}
-          <h1 className="text-5xl md:text-6xl font-bold text-center text-gray-900 mb-16">
-            À propos de moi
-          </h1>
+    <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-16 sm:px-8 lg:grid-cols-[0.72fr_1.28fr]">
+      <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+        <img
+          src={`${import.meta.env.BASE_URL}sekou-kerfala.webp`}
+          alt="Portrait professionnel de Sékou Kerfala Bangoura"
+          className="aspect-square w-full rounded-2xl object-cover"
+          loading="lazy"
+        />
+        <div className="p-2 pt-5">
+          <h2 className="text-xl font-bold text-slate-950">Sékou Kerfala Bangoura</h2>
+          <p className="mt-1 text-sm leading-6 text-slate-600">
+            Développement Full-Stack · Réseaux & support · Communication digitale
+          </p>
+          <address className="mt-5 space-y-3 not-italic text-sm text-slate-600">
+            <a className="block break-all hover:text-blue-700" href="mailto:kerfala789@gmail.com">
+              kerfala789@gmail.com
+            </a>
+            <a className="block hover:text-blue-700" href="tel:+224620217714">
+              +224 620 21 77 14
+            </a>
+            <a className="block hover:text-blue-700" href="tel:+224660020162">
+              +224 660 02 01 62
+            </a>
+            <p>Yimbaya-Faban, Conakry, Guinée</p>
+          </address>
+          <a
+            className="mt-5 inline-flex font-semibold text-blue-700 hover:text-blue-900"
+            href="https://github.com/sekKerfBang"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Voir mon GitHub <span className="ml-2" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </aside>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+      <div className="space-y-6">
+        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-bold text-slate-950">Mon approche</h2>
+          <p className="mt-4 leading-8 text-slate-600">
+            Mon parcours associe le développement d’applications web, l’assistance
+            technique et la communication digitale. J’aime comprendre les besoins
+            d’une équipe, proposer une solution adaptée et contribuer à sa mise en
+            œuvre avec rigueur et sens du service.
+          </p>
+          <p className="mt-3 leading-8 text-slate-600">
+            Je travaille notamment avec Python et Django, Java et Spring Boot, ainsi
+            qu’avec React et Angular. Mon expérience couvre aussi le support matériel,
+            logiciel et réseau, y compris les interventions sur les GAB/DAB NCR.
+          </p>
+        </section>
 
-            {/* Photo + Bio */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <div className="relative group">
-                  <img
-                    src="/static/Skb.jpeg"
-                    alt="Sekou Kerfala Bangoura - Développeur Fullstack"
-                    className="w-full max-w-sm mx-auto rounded-2xl shadow-xl object-cover border-4 border-white group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                    <p className="text-white font-semibold">Développeur passionné</p>
-                  </div>
-                </div>
-
-                <div className="mt-8 bg-white p-6 rounded-xl shadow-lg">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Contact rapide</h3>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>Email : kerfala789@gmail.com</li>
-                    <li>Téléphone : +224 620-21-77-14 / 660-02-01-62</li>
-                    <li>Localisation : Yimbaya Pharmacie, Guinée</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Contenu principal */}
-            <div className="lg:col-span-2 space-y-12">
-
-              {/* Bio */}
-              <section>
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">Qui suis-je ?</h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Je suis un <strong>développeur fullstack</strong> passionné par la création d'applications web modernes et performantes. 
-                  Avec une connaissance solide en <strong>Django, Spring boot</strong> côté backend et <strong>React + Angular + TypeScript</strong> côté frontend, 
-                  je transforme des idées en solutions digitales élégantes, fonctionnelles avec des outils comme <strong>Tailwind CSS</strong> pour des interfaces utilisateur attrayantes.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed mt-4">
-                  J'aime travailler sur des projets qui ont un impact réel, que ce soit des applications métier, des plateformes SaaS ou des sites vitrines.
-                  Mon objectif : livrer un code propre, scalable et maintenable.
-                </p>
-              </section>
-
-              {/* Parcours */}
-              <section>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Mon parcours</h2>
-                <div className="space-y-8">
-                  {[
-                    { year: "2020 - 2024", title: "Licence Professionnelle", company: "Ecole International de Commerce et de la Tecnologie (IST)", desc: "Obtention du Diplome" },
-                    { year: "08/2024 - 09/2024", title: "Certification en Développement Frontend (Angular)", company: "Orange Digital Center(ODC)", desc: "Formation Angular Technologie" },
-                    { year: "11/2024 - 12/2024", title: "Certification en Développement Frontend (React)", company: "Udemy", desc: "React + toolkit + redux" },
-                    { year: "2022 - 2023", title: "Formation en Base de Donnee Relationnelle et Conception des Systemes Informatiques", company: "Ecole International de Commerce et de la Technologie (IST)", desc: "Cours Universitaire" },
-                    { year: "2021 - 2022", title: "Algorithme et Technologie Web", company: "Ecole International de Commerce et de la Tecnologie (IST)", desc: "Cours Universitaire" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-4 group">
-                      <div className="flex flex-col items-center">
-                        <div className="w-4 h-4 bg-blue-600 rounded-full group-hover:scale-150 transition-transform"></div>
-                        <div className="w-0.5 h-full bg-gray-300 mt-2"></div>
-                      </div>
-                      <div className="flex-1 bg-white p-5 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                        <p className="text-sm font-medium text-blue-600">{item.year}</p>
-                        <h3 className="text-xl font-bold text-gray-800">{item.title}</h3>
-                        <p className="text-gray-600">{item.company}</p>
-                        <p className="text-gray-700 mt-2">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Compétences */}
-              <section>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Mes compétences</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {skills.map(skill => (
-                    <div key={skill.id} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                      <div className="flex justify-between mb-2">
-                        <span className="font-semibold text-gray-800">{skill.name}</span>
-                        <span className="text-sm text-gray-600">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Call to action */}
-              <section className="text-center py-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl text-white">
-                <h3 className="text-2xl font-bold mb-3">Prêt à travailler ensemble ?</h3>
-                <p className="mb-4">Discutons de votre projet !</p>
-                <a
-                  href="/contact"
-                  className="inline-block px-8 py-3 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition"
-                >
-                  Me contacter
-                </a>
-              </section>
-            </div>
+        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-bold text-slate-950">Expérience professionnelle</h2>
+          <ol className="mt-7 space-y-7">
+            {experience.map((item) => (
+              <li key={`${item.organization}-${item.role}`} className="relative border-l-2 border-blue-100 pb-1 pl-6 last:border-transparent">
+                <span aria-hidden="true" className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-blue-700 ring-4 ring-white" />
+                <p className="text-sm font-semibold text-blue-700">{item.period}</p>
+                <h3 className="mt-1 text-lg font-bold text-slate-950">{item.role}</h3>
+                <p className="mt-1 text-sm font-medium text-slate-500">{item.organization}</p>
+                <p className="mt-2 leading-7 text-slate-600">{item.details}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-7 rounded-2xl bg-slate-50 p-5">
+            <h3 className="font-bold text-slate-900">Expertise technique complémentaire</h3>
+            <p className="mt-2 leading-7 text-slate-600">
+              Interventions sur des GAB/DAB NCR du secteur bancaire en Guinée :
+              diagnostic d’incidents et contribution à la remise en service des automates.
+            </p>
           </div>
+        </section>
+
+        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-bold text-slate-950">Formation & certifications</h2>
+          <ul className="mt-6 space-y-5">
+            {education.map((item) => (
+              <li key={item.title} className="flex flex-col gap-1 border-b border-slate-100 pb-4 last:border-0 last:pb-0 sm:flex-row sm:gap-5">
+                <span className="w-32 shrink-0 text-sm font-semibold text-blue-700">{item.period}</span>
+                <div>
+                  <h3 className="font-bold text-slate-900">{item.title}</h3>
+                  <p className="mt-1 text-sm text-slate-500">{item.organization}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <span className="rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Développement Frontend Angular · ODC · 2024</span>
+            <span className="rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Développement Frontend React · Udemy · 2024</span>
+          </div>
+        </section>
+
+        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-bold text-slate-950">Compétences clés</h2>
+          <div className="mt-5 space-y-5">
+            {skillGroups.map((group) => (
+              <div key={group.title}>
+                <h3 className="text-sm font-bold uppercase tracking-wide text-slate-500">{group.title}</h3>
+                <ul className="mt-2 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <li key={skill} className="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-3xl bg-slate-950 p-6 text-white shadow-sm sm:p-8">
+          <h2 className="text-2xl font-bold">Langues</h2>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {[
+              ['Français', 'Bon niveau'],
+              ['Anglais', 'Intermédiaire'],
+              ['Soussou', 'Bon niveau'],
+              ['Malinké', 'Bon niveau'],
+              ['Pular', 'Notions'],
+            ].map(([language, level]) => (
+              <li key={language} className="flex justify-between gap-4 border-b border-white/15 pb-2 text-sm">
+                <span className="font-medium">{language}</span>
+                <span className="text-slate-300">{level}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="rounded-3xl bg-blue-700 p-7 text-white sm:p-8">
+          <h2 className="text-2xl font-bold">Consulter mon CV</h2>
+          <p className="mt-2 leading-7 text-blue-100">Retrouvez le détail de mon parcours dans le CV qui correspond à votre besoin.</p>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <a
+              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-white px-5 py-2.5 font-semibold text-blue-800 transition hover:bg-blue-50"
+              href={`${import.meta.env.BASE_URL}documents/CV_Sekou_Kerfala_Bangoura_Developpeur_FullStack_CTSP.pdf`}
+              download
+            >
+              CV Développeur Full-Stack
+            </a>
+            <a
+              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-white/60 px-5 py-2.5 font-semibold text-white transition hover:bg-white/10"
+              href={`${import.meta.env.BASE_URL}documents/CV_Sekou_Kerfala_Bangoura_Technicien_GAB_DAB_NCR.pdf`}
+              download
+            >
+              CV Technicien GAB/DAB
+            </a>
+          </div>
+        </section>
+
+        <div className="text-center">
+          <Link to="/contact" className="font-semibold text-blue-700 hover:text-blue-900">
+            Me contacter au sujet d’un projet <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
-    );
-  };
+    </section>
+  </div>
+);
 
-  export default About;
+export default About;
