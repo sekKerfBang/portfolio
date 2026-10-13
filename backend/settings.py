@@ -42,8 +42,8 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = [
     'portfolio-ps6h.onrender.com',
-    'localhost',
-    '127.0.0.1',
+    # 'localhost',
+    # '127.0.0.1',
 ]
 
 
@@ -86,8 +86,8 @@ MIDDLEWARE = [
 # ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
+    # "http://localhost:5173",
+    # "http://127.0.0.1:5173",
     "https://portfolio-ps6h.onrender.com",
     
 ]
@@ -129,13 +129,6 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 DATABASES = {
