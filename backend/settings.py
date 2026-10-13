@@ -137,11 +137,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 #     }
 # }
 
-if 'RENDER' in os.environ:  # Détecte si on est sur Render
-    DATABASES = {
-        'default': dj_database_url.parse(config('DATABASE_URL'), conn_max_age=600)
-    }
-else:
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
