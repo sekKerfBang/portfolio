@@ -1,5 +1,9 @@
-.env# Sécurité
+.venv/
+__pycache__/
+*.pyc
+db.sqlite3
 .env
-*.env
-env/
-venv/
+frontend/dist/
+frontend/node_modules/
+frontend/public/documents/
+static/images/*.pdf
