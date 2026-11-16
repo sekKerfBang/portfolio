@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { projects } from '../../public/data/projects';
-import { skillGroups } from '../../public/data/skills';
+import { projects } from '../data/projects';
+import { skillGroups } from '../data/skills';
 
 const fullStackCv =
   `${import.meta.env.BASE_URL}documents/CV_Sekou_Kerfala_Bangoura_Developpeur_FullStack_CTSP.pdf`;
@@ -15,6 +15,12 @@ const Home: React.FC = () => {
       <section className="overflow-hidden bg-[#f7f8fa]">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-28">
           <div className="max-w-2xl">
+            <img
+              src={`${import.meta.env.BASE_URL}nws-logo.png`}
+              alt="Numérique World Solution"
+              className="mb-5 h-auto w-56 sm:w-64"
+              fetchPriority="high"
+            />
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm">
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
               Basé à Conakry, Guinée
@@ -86,7 +92,7 @@ const Home: React.FC = () => {
             <p className="mt-1 text-sm text-slate-500">compétences détaillées</p>
           </div>
           <div className="px-4 py-4 text-center sm:text-left sm:pl-8">
-            <p className="text-2xl font-bold text-slate-950">Depuis 2026</p>
+            <p className="text-2xl font-bold text-slate-950">Depuis le 28 septembre 2026</p>
             <p className="mt-1 text-sm text-slate-500">développeur Full-Stack à la CTSP</p>
           </div>
         </div>

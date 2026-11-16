@@ -1,4 +1,4 @@
-import { skillGroups } from '../../public/data/skills';
+import { skillGroups } from '../data/skills';
 
 const Skills: React.FC = () => (
   <div className="min-h-screen bg-[#f7f8fa]">

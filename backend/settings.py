@@ -41,9 +41,9 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 # ]
 
 ALLOWED_HOSTS = [
-    'portfolio-ps6h.onrender.com',
-    # 'localhost',
-    # '127.0.0.1',
+    "portfolio-ps6h.onrender.com",
+    "localhost",
+    "127.0.0.1",
 ]
 
 
@@ -86,8 +86,8 @@ MIDDLEWARE = [
 # ]
 
 CORS_ALLOWED_ORIGINS = [
-    # "http://localhost:5173",
-    # "http://127.0.0.1:5173",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
     "https://portfolio-ps6h.onrender.com",
     
 ]
@@ -188,6 +188,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_USE_SSL = config('EMAIL_USE_SSL', default=False, cast=bool)
+EMAIL_TIMEOUT = config('EMAIL_TIMEOUT', default=10, cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER)
+CONTACT_RECIPIENT_EMAIL = config('CONTACT_RECIPIENT_EMAIL', default=EMAIL_HOST_USER)
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 

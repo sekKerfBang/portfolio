@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import ProjectCard from '../components/ProjectCard';
-import { projects } from '../../public/data/projects';
+import { projects } from '../data/projects';
 
 const Projects: React.FC = () => {
   useEffect(() => {

@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom';
-import { skillGroups } from '../../public/data/skills';
+import { skillGroups } from '../data/skills';
 
 const experience = [
   {
-    period: 'Depuis septembre 2026',
+    period: 'En activité',
+    role: 'Technicien GAB/DAB – automates NCR',
+    organization: 'Secteur bancaire · Guinée',
+    details: 'Interventions techniques sur les automates, diagnostic des incidents et contribution à leur remise en service.',
+  },
+  {
+    period: 'Depuis le 28 septembre 2026',
     role: 'Développeur Full-Stack · Administrateur réseau · Community manager',
     organization: 'CTSP',
     details: 'Développement et évolution d’applications web, suivi de l’environnement réseau et contribution aux contenus numériques.',
@@ -126,13 +132,6 @@ const About: React.FC = () => (
               </li>
             ))}
           </ol>
-          <div className="mt-7 rounded-2xl bg-slate-50 p-5">
-            <h3 className="font-bold text-slate-900">Expertise technique complémentaire</h3>
-            <p className="mt-2 leading-7 text-slate-600">
-              Interventions sur des GAB/DAB NCR du secteur bancaire en Guinée :
-              diagnostic d’incidents et contribution à la remise en service des automates.
-            </p>
-          </div>
         </section>
 
         <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">

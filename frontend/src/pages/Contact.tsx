@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
+import { sendContactMessage } from '../services/api';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -21,18 +21,13 @@ const Contact: React.FC = () => {
     setStatus('sending');
 
     try {
-      await emailjs.send(
-        'service_3lyhzah',  // ← À remplacer (EmailJS > Services)
-        'template_i03phcy', // ← À remplacer (EmailJS > Templates)
-        formData,
-        '-g2RULlt4yahs0SpL'   // ← À remplacer (EmailJS > Account > Public Key)
-      );
-      
+      await sendContactMessage(formData);
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setStatus('idle'), 4000);
       
-    } catch {
+    } catch (error) {
+      console.error("Erreur lors de l'envoi du message de contact:", error);
       setStatus('error');
       setTimeout(() => setStatus('idle'), 4000);
     }
@@ -147,8 +142,11 @@ const Contact: React.FC = () => {
                     </p>
                   )}
                   {status === 'error' && (
-                    <p className="text-red-600 font-medium animate-pulse">
-                      Erreur d'envoi. Réessayez.
+                    <p className="text-red-600 font-medium" role="alert">
+                      Envoi impossible. Contactez-moi directement à{' '}
+                      <a className="underline" href="mailto:kerfala789@gmail.com">
+                        kerfala789@gmail.com
+                      </a>.
                     </p>
                   )}
                 </div>

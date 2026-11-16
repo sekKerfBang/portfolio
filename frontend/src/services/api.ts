@@ -3,7 +3,7 @@ import type { ContactForm, Project, Skill } from '../types';
 
 // URL de base de l'API Django, remplacée automatiquement par Vite en build prod
 // const API_BASE = __API_BASE_URL__ as string;
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = import.meta.env.VITE_API_BASE || '/api';
 
 // Instance Axios
 const api = axios.create({
@@ -88,7 +88,6 @@ export const sendContactMessage = async (data: ContactForm): Promise<void> => {
 
 // /**
 //  * Récupère toutes les compétences
-//  * @returns Promise<Skill[]> - Liste des compétences
 //  */
 // export const fetchSkills = async (): Promise<Skill[]> => {
 //   try {
